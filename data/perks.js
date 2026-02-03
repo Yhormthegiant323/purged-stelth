@@ -1,69 +1,158 @@
+export const PERKS = [
 
-const PERKS = [{
+/* ================= COMBAT ================= */
+
+{
   id:"gunslinger",
   name:"Gunslinger",
-  category:"Combat",
+  category:"combat",
   ranks:[
     "+2 Guns, Pistols -1 AP",
     "+3 Guns, Pistols -1 AP",
     "+4 Guns, Pistols -2 AP"
   ],
-  req:{ level:3, skills:{ guns:3 },
+  req:{ level:3, skills:{ guns:3 } }
+},
+
 {
   id:"commando",
   name:"Commando",
-  category:"Combat",
+  category:"combat",
   ranks:[
     "+2 Guns (Rifles), Ignore 1 DR",
     "+3 Guns (Rifles), Ignore 2 DR",
     "+4 Guns (Rifles), Ignore 3 DR"
   ],
-  req:{ level:3, skills:{ guns:3 },
+  req:{ level:3, skills:{ guns:3 } }
+},
+
 {
   id:"shotgun_surgeon",
   name:"Shotgun Surgeon",
-  category:"Combat",
+  category:"combat",
   ranks:[
     "Shotguns ignore 2 DR",
     "Shotguns ignore 3 DR",
     "Shotguns ignore 4 DR"
   ],
-  req:{ level:6, skills:{ guns:4 },
+  req:{ level:6, skills:{ guns:4 } }
+},
+
 {
   id:"laser_commander",
   name:"Laser Commander",
-  category:"Combat",
+  category:"combat",
   ranks:[
     "+1 hit/dmg (Energy)",
     "+2 hit/dmg (Energy)",
     "+3 hit/dmg (Energy)"
   ],
-  req:{ level:6, skills:{ energy:4 },
-{
-  id:"demolition_expert",
-  name:"Demolition Expert",
-  category:"Combat",
-  ranks:[
-    "+1 die on explosive crit",
-    "+2 dice on explosive crit",
-    "Explosives always crit on 19–20"
-  ],
-  req:{ level:6, skills:{ explosives:4 },
+  req:{ level:6, skills:{ energy_weapons:4 } }
+},
+
 {
   id:"sniper",
   name:"Sniper",
-  category:"Combat",
+  category:"combat",
   ranks:[
-    "Ignore half-cover (Near/Far)",
-    "Ignore all cover (Near/Far)",
+    "Ignore half-cover",
+    "Ignore all cover",
     "Crit on 18–20 at range"
   ],
-  req:{ level:6, special:{ PER:2 },
+  req:{ level:6, special:{ PER:2 } }
+},
+
+
+/* ================= STEALTH / MOBILITY ================= */
+
 {
-  id:"slayer",
-  name:"Slayer",
-  category:"Combat",
+  id:"ninja",
+  name:"Ninja",
+  category:"stealth_mobility",
   ranks:[
+    "+2 Sneak",
+    "+1d6 damage from stealth",
+    "+2d6 damage from stealth"
+  ],
+  req:{ level:1 }
+},
+
+{
+  id:"silent_running",
+  name:"Silent Running",
+  category:"stealth_mobility",
+  ranks:[
+    "No Sneak penalty when moving",
+    "No penalty when sprinting",
+    "No penalty with pistols"
+  ],
+  req:{ level:1 }
+},
+
+{
+  id:"backstabber",
+  name:"Backstabber",
+  category:"stealth_mobility",
+  ranks:[
+    "+2 unaware damage",
+    "+3 unaware damage",
+    "+4 unaware damage"
+  ],
+  req:{ level:3, skills:{ sneak:3 } }
+},
+
+
+/* ================= CRAFTING / SURVIVAL ================= */
+
+{
+  id:"strong_back",
+  name:"Strong Back",
+  category:"crafting",
+  ranks:[
+    "+30 carry",
+    "+60 carry",
+    "+90 carry"
+  ],
+  req:{ level:6, special:{ STR:2 } }
+},
+
+{
+  id:"survivalist",
+  name:"Survivalist",
+  category:"crafting",
+  ranks:[
+    "+2 Survival",
+    "+3 Survival",
+    "+4 Survival"
+  ],
+  req:{ level:3, skills:{ survival:3 } }
+},
+
+{
+  id:"medic",
+  name:"Medic",
+  category:"crafting",
+  ranks:[
+    "+2 Medicine",
+    "+3 Medicine",
+    "+4 Medicine"
+  ],
+  req:{ level:3, skills:{ medicine:3 } }
+},
+
+{
+  id:"scientist",
+  name:"Scientist",
+  category:"crafting",
+  ranks:[
+    "+2 Science",
+    "+3 Science",
+    "+4 Science"
+  ],
+  req:{ level:6, skills:{ science:4 } }
+}
+
+];
     "+1 melee dmg, +1 init AGI",
     "+2 melee dmg, +2 init AGI",
     "+3 melee dmg, advantage on crits"
